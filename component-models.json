@@ -214,5 +214,22 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "test-block",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "heading",
+        "label": "Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Content",
+        "valueType": "string"
+      }
+    ]
   }
 ]

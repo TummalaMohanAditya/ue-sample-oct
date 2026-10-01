@@ -1,0 +1,23 @@
+.test-block {
+  padding: 24px;
+  border-inline-start: 4px solid var(--link-color);
+  background-color: var(--light-color);
+  overflow-wrap: anywhere;
+}
+
+.test-block .test-block-heading :is(h2, h3, p) {
+  margin-top: 0;
+}
+
+.test-block .test-block-content :last-child {
+  margin-bottom: 0;
+}
+
+.test-block ol,
+.test-block ul {
+  padding-inline-start: 24px;
+}
+
+.test-block li + li {
+  margin-top: 12px;
+}
