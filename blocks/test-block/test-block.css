@@ -1,23 +1,194 @@
 .test-block {
-  padding: 24px;
-  border-inline-start: 4px solid var(--link-color);
-  background-color: var(--light-color);
+  --story-ink: #192a26;
+  --story-muted: #62716b;
+  --story-accent: #c4492f;
+  --story-line: #dce4de;
+
+  color: var(--story-ink);
+  font-family: "DM Sans", var(--body-font-family, sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0;
   overflow-wrap: anywhere;
 }
 
-.test-block .test-block-heading :is(h2, h3, p) {
-  margin-top: 0;
+.test-block .test-block-heading {
+  margin-bottom: 36px;
 }
 
-.test-block .test-block-content :last-child {
-  margin-bottom: 0;
+.test-block .test-block-heading :is(h1, h2, h3) {
+  max-width: 16ch;
+  margin: 14px 0 18px;
+  font-family: "Space Grotesk", var(--heading-font-family, sans-serif);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0;
 }
 
-.test-block ol,
-.test-block ul {
-  padding-inline-start: 24px;
+.test-block .test-block-heading p {
+  max-width: 540px;
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 17px;
 }
 
-.test-block li + li {
-  margin-top: 12px;
+.test-block .test-block-heading p:where(:first-child) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--story-accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.test-block .test-block-heading p:where(:first-child)::before {
+  width: 20px;
+  height: 2px;
+  background: currentcolor;
+  content: "";
+}
+
+.test-block .test-block-stories {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: story;
+}
+
+.test-block .test-block-story {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--story-line);
+  border-radius: 8px;
+  background: #fff;
+  counter-increment: story;
+  animation: story-arrive 600ms both;
+}
+
+.test-block .test-block-story:nth-child(2) {
+  background: #edf5ee;
+  animation-delay: 90ms;
+}
+
+.test-block .test-block-story:nth-child(3) {
+  background: #fff3ed;
+  animation-delay: 180ms;
+}
+
+.test-block .test-block-story > picture {
+  display: block;
+  margin: -24px -24px 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--story-line);
+}
+
+.test-block .test-block-story picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.test-block .test-block-story blockquote {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0;
+  padding-top: 28px;
+}
+
+.test-block .test-block-story blockquote::before {
+  margin-bottom: 18px;
+  color: var(--story-accent);
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 0.7;
+  content: "\201C";
+}
+
+.test-block .test-block-story blockquote > p {
+  flex: 1;
+  margin: 0 0 32px;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.test-block .test-block-story blockquote footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--story-line);
+}
+
+.test-block .test-block-story blockquote footer::before {
+  display: grid;
+  flex: 0 0 38px;
+  height: 38px;
+  border: 1px solid #cbd5ce;
+  border-radius: 50%;
+  color: var(--story-muted);
+  font-size: 11px;
+  place-items: center;
+  content: counter(story, decimal-leading-zero);
+}
+
+.test-block .test-block-story cite {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.test-block .test-block-story cite span {
+  display: block;
+  margin-top: 2px;
+  color: var(--story-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@keyframes story-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (width >= 600px) {
+  .test-block .test-block-heading :is(h1, h2, h3) {
+    font-size: 56px;
+  }
+}
+
+@media (width >= 900px) {
+  .test-block .test-block-stories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .test-block .test-block-story blockquote > p {
+    min-height: 128px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .test-block .test-block-story {
+    animation: none;
+  }
 }

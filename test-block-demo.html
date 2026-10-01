@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Three perspectives on clearer, more thoughtful teamwork.">
+    <title>Team Stories | Fieldwork</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blocks/test-block/test-block.css">
+    <style>
+      * { box-sizing: border-box; }
+      html { color-scheme: light; }
+      body {
+        margin: 0;
+        background-color: #f7f9f7;
+        background-image: linear-gradient(90deg, transparent calc(100% - 1px), #e9eeea 1px);
+        background-size: 80px 100%;
+        color: #192a26;
+        font-family: "DM Sans", sans-serif;
+        letter-spacing: 0;
+      }
+      .demo-header, main, .demo-footer {
+        width: min(1160px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+      .demo-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        min-height: 86px;
+        border-bottom: 1px solid #dce4de;
+      }
+      .demo-brand {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .demo-edition {
+        color: #62716b;
+        font-size: 11px;
+        text-align: right;
+      }
+      main { padding-block: 42px 48px; }
+      .demo-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding-block: 22px;
+        border-top: 1px solid #dce4de;
+        color: #62716b;
+        font-size: 12px;
+      }
+      .demo-footer p { margin: 0; }
+      @media (min-width: 900px) {
+        main { padding-block: 54px 56px; }
+        .demo-header, main, .demo-footer { width: min(1160px, calc(100% - 80px)); }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="demo-header">
+      <span class="demo-brand">fieldwork.</span>
+      <span class="demo-edition">A COLLECTION OF PERSPECTIVES<br>VOL. 01 / TEAMWORK</span>
+    </header>
+    <main>
+      <div class="test-block block">
+        <div>
+          <div>
+            <p>Good work is a team effort</p>
+            <h1>Team stories.</h1>
+            <p>Less friction. More possibility. Three perspectives on finding a better way to work together.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <ol>
+              <li>
+                <picture>
+                  <img src="/blocks/test-block/workspace.jpg" alt="A bright shared workspace with open desks and natural light" width="720" height="450" fetchpriority="high">
+                </picture>
+                <blockquote>
+                  <p>One shared plan. Fewer handoffs. More time for the work that actually matters.</p>
+                  <footer><cite>Product team<span>On finding focus</span></cite></footer>
+                </blockquote>
+              </li>
+              <li>
+                <picture>
+                  <img src="/blocks/test-block/collaboration.jpg" alt="A team sharing ideas around a table in a creative workspace" width="720" height="450" loading="lazy">
+                </picture>
+                <blockquote>
+                  <p>The best ideas happen when everyone has the space to bring something different.</p>
+                  <footer><cite>Design team<span>On making room for ideas</span></cite></footer>
+                </blockquote>
+              </li>
+              <li>
+                <picture>
+                  <img src="/blocks/test-block/studio.jpg" alt="An open studio with shared tables, chairs, and plants" width="720" height="450" loading="lazy">
+                </picture>
+                <blockquote>
+                  <p>Clear context changed everything. Now we spend less time catching up and more time moving forward.</p>
+                  <footer><cite>Engineering team<span>On building momentum</span></cite></footer>
+                </blockquote>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="demo-footer">
+      <p>Different perspectives. One shared direction.</p>
+      <p>FIELDWORK / IN GOOD COMPANY</p>
+    </footer>
+    <script type="module">
+      import decorate from '/blocks/test-block/test-block.js';
+
+      decorate(document.querySelector('.test-block'));
+    </script>
+  </body>
+</html>
